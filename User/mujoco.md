@@ -54,3 +54,25 @@
 | M      | 质心可视化           |
 | ，      | Activation      |
 | /      | haze地平线         |
+
+# 仿真世界
+## 世界根节点
+```xml
+<mujoco model="模型文件">
+</mujoco>
+```
+## 仿真计算配置
+### compiler节点
+```xml
+<compiler angle="radian/degree" autolimits="true"/>
+```
+compiler 节点中定义的包括angle(角度单位)，autolimits(受力限制)等，
+一般按照上面写就行，规定角度单位是弧度制，受力限制开启。弧度制是机器人开发的常用单位制。
+### option节点
+```xml
+<option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast"
+density="1.225" viscosity="1.8e-5"/>
+```
+* timestep:计算机无法直接模拟“连续时间”，只能将时间拆分成离散的“小步”（timestep）
+* gravity:官方推荐默认，不推荐修改
+* integrator(数值积分器)：可选：Euler(欧拉法)，RK4（四阶龙格-库塔法）,implicit（快速隐式法），implicitfast(快速隐式法)，默认值：Euler
