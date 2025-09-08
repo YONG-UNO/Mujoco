@@ -1,7 +1,62 @@
+# 配置git
+```angular2html
+1.检测-是否安装git
+git --version
+若安装，则输出git版本号
+
+2.在linux中安装git
+sudo apt update
+sudo apt install git
+
+3.配置git
+设置用户名和邮箱地址
+3.1 运行以下命令来配置git全局用户名和邮箱
+git config --global user.name "your name"
+git config --global user.email "your_email@example.com"
+
+3.2
+你可以通过以下命令来检查配置是否成功：
+git config --global --list
+这将显示你设置的用户名和电子邮箱
+
+3.3 
+如果你发现配错了
+要重置git的全局配置，可以使用以下命令
+git config --global --unset-all user.name
+git config --global --unset-all user.email
+这将删除全局配置中的相应的键值对，重置后，git将不再使用这些值作为默认
+的配置。
+
+4.生成SSH密钥sudo apt update
+
+若果你要使用git和远程仓库（如github）进行交互，建议生成SSH密钥并添加到
+你的git账户中，这样，你可以避免每次推送代码时输入用户名和密码
+
+生成SSH密钥：
+ssh-keygen -t rsa -b 4096 -C "your-email@example.com"
+直接enter三次
+可以通过以下命令复制公钥
+cat ~/.ssh/id_rsa.pub
+
+将显示的公钥复制到github SSH密钥中
+```
+
 # 安装tar.gz
 ## 以pycharm为例
 ```angular2html
-压缩包下载好后可以在Downloads中找到
+第一步：下载
+压缩包下载好后可以在Downloads中找到,打开终端，进入downloads目录中
+cd ~/Downloads
+第二步：解压缩
+用以下命令解压缩：
+dingyong@HaJiMi:~/Downloads$ tar -zxvf pycharm-2025.2.1.1.tar.gz 
+第三步：将文件移动到/usr/lib目录下
+sudo mv pycharm-2025.2.1.1/ /usr/lib/
+第四步：
+进入/usr/lib/pycharm-2025.2.1.1/bin目录
+运行 ./pycharm
+第五步：
+创建桌面快捷键
 ```
 
 # 安装显卡驱动
